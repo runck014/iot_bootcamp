@@ -3,4 +3,5 @@ Bootcamp materials focused on internet of things technologies in agriculture. Co
 
 # Funders
 Malawi Center for Agricultural Transformation
+
 GEMS Agroinformatics Initiative
