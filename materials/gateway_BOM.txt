@@ -1,0 +1,4 @@
+Tab separated BOM for Base Gateway
+
+Item	Cost	Link
+

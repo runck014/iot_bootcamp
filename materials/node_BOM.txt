@@ -1,0 +1,4 @@
+Tab separated BOM for Base Node
+
+Item	Cost	Link
+
