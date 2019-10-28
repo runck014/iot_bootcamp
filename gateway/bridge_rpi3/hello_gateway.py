@@ -12,7 +12,6 @@ LoRa32u4 receiver printing data to USB.
 
 import serial
 
-print(serial_port)
 ser = serial.Serial(
         port='/dev/ttyACM0', 
         baudrate=9600,
