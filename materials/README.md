@@ -8,7 +8,5 @@ gets:
 - 1 web sever
 - 1 database
 
-Total cost per group: $xxxx
-
 In order to reduce the burden of procuring materials, we work with the open
 source company Northern Widget who prepares each group's kit.
