@@ -7,8 +7,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 # establish database connection
-client = pymongo.MongoClient("mongodb+srv://db3:1q2w3e4r5t@cluster0-moupm.gcp.mongodb.net/test?retryWrites=true"
-)
+client = pymongo.MongoClient("mongodb+srv://db3:1q2w3e4r5t@cluster0-moupm.gcp.mongodb.net/test?retryWrites=true")
 db = client.bootcamp # specific database is bootcamp
 collection = db.group1 #group 1 collection
 '''
