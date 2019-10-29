@@ -1,2 +1,8 @@
 # Web Server Overview
 The web server uses Flask. The underlying database is MongoDB, hosted on Google Cloud via Mongo Atlas.
+
+# To get started
+The hello_web_server.py provides basic website functionality and posting. The website is simply "hello, world". The posting prints whatever is sent to console. There is also an exercise in the file to create a new route with your own basic functionality.
+
+# Full functionality
+The web_server.py file has the full functionality including posting to a MongoDB database called bootcamp in a collection that corresponds to your group name. You can also get data out of the database using the "/last_100" method.
