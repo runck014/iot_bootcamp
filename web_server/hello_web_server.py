@@ -53,3 +53,4 @@ if __name__ == "__main__":
     app.run(
       #debug=True, #shows errors 
       host='0.0.0.0', #tells app to run exposed to outside world
+      port=5000)

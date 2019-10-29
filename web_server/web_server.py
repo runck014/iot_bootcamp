@@ -3,75 +3,49 @@ from time import gmtime, strftime
 import pymongo
 from pymongo import MongoClient
 from flask import Flask, request
+
 app = Flask(__name__)
 
+# establish database connection
+client = pymongo.MongoClient("mongodb+srv://db3:1q2w3e4r5t@cluster0-moupm.gcp.mongodb.net/test?retryWrites=true"
+)
+db = client.bootcamp # specific database is bootcamp
+collection = db.group1 #group 1 collection
 '''
-Python decorateors point to a function
-Here, it specifies the app route '/'.
-It sends basic text from the hello() function
-back as a response. This is what you
-see in your web browser when you type in
-x.x.x.x:5000/
-
-Note: the / in the above path references the '/'
-in the @app.route('/') designation.
-
-For more on decorators, Google "decorators in python".
-'''
-@app.route('/') #python decorator 
-def hello_world(): #function that app.route decorator references
-  response = hello()
-  return response
-
-def hello():
-  return "hello, world"
-
-'''
-MAKE YOUR OWN ROUTE:
-
-If you added a decorator @app.route('/test')
-and defined a function def test():
-you can see how this works. Note: you
-will need to restart the web server if you do this.
-
-See github wiki pages for more details:
-https://github.com/runck014/gems_iot_bootcamp/wiki/4.-Web-Server
-'''
-
-# route only prints data to console
-@app.route('/print_data', methods=['POST'])
-def print_data():
-  
-  print("*********************")
-  print("*********************")
-  print(request.method) # finds method -> here it should be "POST"
-  print(request.data) # generic - get all data; covers case where you don't know what's coming
-  print(request.json) # parses json data
-  print("*********************")
-  print("*********************")
-  return "Accepted 202 - post received; printed to console"
-
-# route adds data to mongodb
-@app.route('/post_data', methods=['POST'])
-def post_data():
-  print("**********************")
-  print("**** POSTING DATA ****")
-  print("**********************")
-  # establish database connection
-  client = pymongo.MongoClient("mongodb+srv://db3:1q2w3e4r5t@cluster0-moupm.gcp.mongodb.net/test?retryWrites=true")
-  db = client.bootcamp # database is called bootcamp
-  '''
-  Each group has a collection in the bootcamp database.
-  They are named after the gruop number:
+Each group has a collection in the bootcamp database.
+They are named after the gruop number:
   - group1
   - gruop2
   - group3
   - group4
   - group5
   - and so on
-  '''
-  collection = db.group1 #group 1 collection
+'''
+
+
+@app.route('/')
+def last_100(): # returns last 100 readings to html output
+  doc_count = collection.count_documents({})
+  grtr_filter = doc_count - 100
+  cursor = collection.find({"doc_count": {"$gt":grtr_filter}})
+ 
+  response = []
+  for data in cursor: # iterate through cursor
+    response.append(data) # append to response
+  return str(response) #convert to string so it can be viewed as HTML
+
+
+
+
+@app.route('/post_data', methods=['POST'])
+def post_data():
+  print("**********************")
+  print("**** POSTING DATA ****")
+  print("**********************")
+  # establish database connection
+
   doc_count = collection.count_documents({}) + 1 # see [1]
+
   current_time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
   payload = ({"doc_count":doc_count, 
               "data":request.data, 
