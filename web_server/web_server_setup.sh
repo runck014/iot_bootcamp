@@ -8,6 +8,8 @@ rm get-pip.py # clean up
 # 2. install #python packages
 sudo pip install flask
 sudo pip install pymongo
+sudo python -m pip install pymongo[srv]
+
 
 #3. start flask app
 #python NAME_OF_APP.py
