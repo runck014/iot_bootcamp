@@ -54,7 +54,7 @@ while 1:
       '''
       
       POST_ADDRESS = 'http://35.223.208.199:5000/print_data'
-      r = requests.post(url = POST_ADDRESS, data=str(data))
+      r = requests.post(url = POST_ADDRESS, data=str(data), timeout=10)
 
       print('REST response: ', r.text)
       print('----------------------------')
