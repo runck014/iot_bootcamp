@@ -32,8 +32,9 @@ while 1:
     - /post_data (for posting to database)
     
     '''
-    
+    print('Posting data: ')    
     data = "Hello World from RPi Post Script!"
+    print(data)
     POST_ADDRESS = 'http://35.223.208.199:5000/print_data'
     r = requests.post(url = POST_ADDRESS, data=str(data))
     print('REST response: ', r.text)

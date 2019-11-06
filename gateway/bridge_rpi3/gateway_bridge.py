@@ -25,7 +25,7 @@ ser = serial.Serial(
 while 1:
   data = ser.readline()
   if len(data) > 55:
-      print(data)
+      
       print(" ")
       
       '''
@@ -52,10 +52,13 @@ while 1:
       - /post_data (for posting to database)
       
       '''
-      
+
       POST_ADDRESS = 'http://35.223.208.199:5000/print_data'
       r = requests.post(url = POST_ADDRESS, data=str(data), timeout=10)
-
+      print('Posting data to: ', POST_ADDRESS)
+      print(' ')
+      print('Data: ', data)
+      print(' ')
       print('REST response: ', r.text)
       print('----------------------------')
       print(' ')
