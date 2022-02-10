@@ -2,7 +2,7 @@
 The web server uses Flask. The underlying database is MongoDB, hosted on Google Cloud via Mongo Atlas.
 
 # To get started
-To start, run the web_server_setup.sh on your VM (see Wiki for more help):
+To start, run the web_server_setup.sh on your VM (see [Wiki](https://github.com/runck014/iot_bootcamp/wiki/Setting-Up-VM-on-Google-Cloud) for more help):
 
 ```bash
 $ bash web_server_setup.sh
