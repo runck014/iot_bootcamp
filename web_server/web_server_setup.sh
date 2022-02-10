@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 0. Get Python
+sudo apt-get install python -y
+
 # 1. Get pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python get-pip.py
