@@ -1,17 +1,15 @@
 #!/bin/bash
   
-# 0. Get Python
-sudo apt-get install python
 
 # 1. Get pip
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
-sudo python get-pip.py
-rm get-pip.py # clean up
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.8 get-pip.py
+rm get-pip.py
+export PATH=~/.local/bin:$PATH
 
 # 2. install #python packages
-sudo pip install flask
-sudo pip install pymongo
-sudo python -m pip install pymongo[srv]
+pip install flask
+pip install pymongo
 
 # 3. Allow password only access to web server.
 # NO NOT DO THIS FOR PRODUCTION. ONLY FOR BOOTCAMP.
